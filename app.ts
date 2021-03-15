@@ -1,22 +1,15 @@
-function add(n1:number,n2:number){
-    return n1 + n2;
+let userInput: unknown;
+let userName: string;
+
+userInput = 5;
+userInput = "Test";
+if(typeof userInput === 'string'){
+userName = userInput;
 }
 
-function printResults(num:number){
-    console.log('Result is: '+num);
+//never return type - error (throw) and infinte loop
+function generateError(message:string, code:number):never{
+    throw { errorMessage: message, errorCode: code};
 }
 
-let combineValues: (a:number,b:number) => number;
-combineValues = add;
-
-console.log(combineValues(8,8));
-
-//callback function 
-function addAndHandle(n1: number,n2:number,cb:(num:number)=>void){
-    const result = n1+n2;
-    cb(result);
-}
-
-addAndHandle(10,20, (result)=>{
-    console.log(result);
-})
+generateError('An error occured!!!', 500);

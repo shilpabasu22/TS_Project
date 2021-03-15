@@ -1,17 +1,13 @@
-function add(n1, n2) {
-    return n1 + n2;
+"use strict";
+var userInput;
+var userName;
+userInput = 5;
+userInput = "Test";
+if (typeof userInput === 'string') {
+    userName = userInput;
 }
-function printResults(num) {
-    console.log('Result is: ' + num);
+//never return type - error (throw) and infinte loop
+function generateError(message, code) {
+    throw { errorMessage: message, errorCode: code };
 }
-var combineValues;
-combineValues = add;
-console.log(combineValues(8, 8));
-//callback function 
-function addAndHandle(n1, n2, cb) {
-    var result = n1 + n2;
-    cb(result);
-}
-addAndHandle(10, 20, function (result) {
-    console.log(result);
-});
+generateError('An error occured!!!', 500);

@@ -1,31 +1,23 @@
-function addNumbers(num1:number, num2:number){
-    return num1+num2
+"use strict";
+function addNumbers(num1, num2) {
+    return num1 + num2;
 }
-
 var number1 = 5;
 var number2 = 2.8;
-var result = addNumbers(number1,number2);
-
+var result = addNumbers(number1, number2);
 console.log(result);
-
-
 // const person:{
 //     name:string;
 //     age:number;
 // }
-const person:{ // we need explicit type assignment for tuples
-    name:string;
-    age: number;
-    hobbies: string[];
-    role:[number,string]; //tuple
-} = {
-    name:'Shilpa',
+var person = {
+    name: 'Shilpa',
     age: 40,
-    hobbies:[
+    hobbies: [
         'cooking',
         'driving'
     ],
-    role:[
+    role: [
         1,
         'admin'
     ]
@@ -35,25 +27,29 @@ person.role.push('user'); //typescript doesn't understand push in tuples
 // person.role[1] =10;
 console.log(person.role);
 console.log(person.name);
-
-
 //ENum
-
-enum Role {ADMIN,READ_ONLY,AUTHOR};
-const people= {
-    name:'Shilpa',
+var Role;
+(function (Role) {
+    Role[Role["ADMIN"] = 0] = "ADMIN";
+    Role[Role["READ_ONLY"] = 1] = "READ_ONLY";
+    Role[Role["AUTHOR"] = 2] = "AUTHOR";
+})(Role || (Role = {}));
+;
+var people = {
+    name: 'Shilpa',
     age: 40,
-    hobbies:[
+    hobbies: [
         'cooking',
         'driving'
     ],
-    role:Role.ADMIN
+    role: Role.ADMIN
 };
-
-if(people.role === Role.ADMIN){
+if (people.role === Role.ADMIN) {
     console.log('.... is admin');
-}else if(people.role === Role.READ_ONLY){
+}
+else if (people.role === Role.READ_ONLY) {
     console.log('.... is read only');
-}else{
+}
+else {
     console.log('.... is author');
 }
